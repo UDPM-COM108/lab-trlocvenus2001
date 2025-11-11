@@ -37,3 +37,41 @@ int main(){ // hàm chính
     printf("\nDien tich hinh tron la: %.2f", S); // xuất ra màn hình
     return 0; // kết thúc hàm chính
 }*/
+
+//Bài 4: Xây dựng chương trình tính điểm trung bình
+/*Nhập: Toán lý hóa
+Xuất: điểm trung bình
+Hệ số của toán: x3
+Hệ số của lý: x2
+Hệ số của hóa: x1
+#include <stdio.h> // thư viện
+
+int main(){ // hàm chính
+  float toan, ly, hoa, diemTB; // khai báo biến
+    printf("Nhap diem toan: "); 
+    scanf("%f", &toan); 
+    printf("Nhap diem ly: "); 
+    scanf("%f", &ly); 
+    printf("Nhap diem hoa: "); 
+    scanf("%f", &hoa); 
+    diemTB = (toan * 3 + ly * 2 + hoa) / 6; // tính điểm trung bình
+    printf("Diem trung binh la: %.2f\n", diemTB); // xuất ra
+    return 0; // kết thúc hàm chính
+}*/
+
+/*Bài 5: XÂY DỰNG CHƯƠNG TRÌNH TÍNH CHU VI DIỆN TÍCH HÌNH TAM GIÁC VUÔNG
+#include <stdio.h> // thư viện
+
+int main(){ // hàm chính
+    float a,b,c,P,S;
+    printf("Nhap do dai canh a: ");
+    scanf("%f", &a);
+    printf("Nhap do dai canh b: ");
+    scanf("%f", &b);
+    c = sqrt(a*a + b*b); // tính cạnh huyền
+    P = a + b + c; // tính chu vi
+    S = (a * b) / 2; // tính diện tích
+    printf("Chu vi hinh tam giac vuong la: %.2f\n", P); // xuất ra
+    printf("Dien tich hinh tam giac vuong la %.2f\n", S); // xuất ra )
+    return 0;
+}*/
