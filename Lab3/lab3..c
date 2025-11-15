@@ -109,26 +109,30 @@ int main() {
     return 0;
 }*/
 
+
 /*// Bài 4: Sử dụng switch-case để thực hiện tạo menu cho 3 bài tập trên
 #include <stdio.h>
 
 int main(){
     int luachon;
-    printf("Chọn chương trình tính toán:\n");
+    printf("Chọn chương trình tính toán\n");
     scanf("%d",&luachon);
     switch (luachon){
         case 1:
             printf("Tính học lực:");
-        break;
+            break;
         case 2:
             printf("Tính phương trình bậc nhất: ");
-        break;
+            break;
         case 3:
             printf("Tính phương trình bậc hai:");
-        break;
+            break;
+        case 4:
+            printf("Tính tiền điện - Coming soon:");
+            break;
         return 0;
         default:
-            printf("Lỗi: Lựa chọn không hợp lệ, vui lòng chọn lại từ 0 đến 3.\n");
+            printf("Lỗi: Lựa chọn không hợp lệ, vui lòng chọn lại từ 1 đến 4.\n");
         break;
         }
         printf("\n");
