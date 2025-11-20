@@ -83,31 +83,40 @@ int main() {
     return 0;
 }*/
 
-// Bài 5: Xây dựng chuyển số thập phân sang số nhị phân
-#include <stdio.h>
+// Bài 4: Xây dựng chuyển số thập phân sang số nhị phân
+/*#include <stdio.h>
+#include <math.h>
 
-int sonhiphan(int n) {
-    if (n > 1) {
-        sonhiphan(n / 2);
-        n % 2 == 0;
+long long dectobin(int dec) {
+    long long bin = 0;
+    int p = 0;
+    while (dec > 0) {
+        bin += (dec % 2) * pow(10,p);
+        ++p;
+        dec /= 2;
     }
-    printf("%d", sonhiphan);
+    return bin;
 }
-int main() {
-    int n;
-    printf("Nhập n: ");
-    scanf("%d", &n);
-    printf("Số nhị phân là: ");
-    if (n < 0) {
-        printf("Vui lòng nhập số dương.");
-    } else {
-        sonhiphan(n);
-    }    
+int main (){
+    int sothapphan;
+    printf("Nhập số thập phân: \n");
+    scanf("%d", &sothapphan);
+    printf("Bin = %d", dectobin(sothapphan));
     return 0;
-}
-// Bài 4: Xây dựng menu chương trình cho 3 bài tập trên
+}*/
+// Bài 5: Xây dựng menu chương trình cho 4 bài tập trên
 #include <stdio.h>
-
+#include <math.h>
+long long dectobin (int dec){
+    long long bin = 0;
+    int p = 0;
+    while (dec > 0) {
+        bin += (dec % 2) * pow(10,p);
+        ++p;
+        dec /= 2;
+    }
+    return bin;
+}
 int main() {
     int chon;
     do {
@@ -116,7 +125,7 @@ int main() {
         printf("Chức năng 3: Tìm số chính phương\n");
         printf("Chức năng 4: Chuyển số thập phân sang số nhị phân\n");
         printf("Chức năng 0: Thoát\n");
-        printf("Chọn.");
+        printf("Chọn: ");
         scanf("%d", &chon);
         switch (chon) {
             case 1: { 
@@ -189,24 +198,13 @@ int main() {
                 break;
             }
             case 4: {
-                int sonhiphan(int n) {
-                    if (n > 1) {
-                        sonhiphan(n / 2);
-                        n % 2 == 0;
-                    }
-                    printf("%d", sonhiphan);
-                }
                 int main(){
-                    int n;
-                    printf("Nhập n: ");
-                    scanf("%d", &n);
-                    printf("Số nhị phân là: ");
-                    if (n < 0) {
-                        printf("Vui lòng nhập số dương.");
-                    } else {
-                        sonhiphan(n);
-                    }
-                }   break 0;
+                    int sothapphan;
+                    printf("Nhập số thập phân: \n");
+                    scanf("%d", &sothapphan);
+                    printf("Bin = %d", dectobin(sothapphan));
+                }
+                break;
             }
             case 0:
                 printf("Thoát.\n");
@@ -215,7 +213,7 @@ int main() {
                 printf("Vui lòng chọn lại (1-4). Thoát (0)\n");
         }
         if (chon != 0) {
-            printf("\nEnter - Tiếp tục");
+            printf("\nEnter - Tiếp tục\n");
         }
     } while (chon != 0);
     return 0;
