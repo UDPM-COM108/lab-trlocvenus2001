@@ -1,6 +1,6 @@
     #include <stdio.h>
-    #include <conio.h>
-    #include <stdlib.h>
+    #include <conio.h> // Tạo getch() dừng màn hình
+    #include <stdlib.h> // Tạo exit() thoát chương trình
     int main(){
         int chon;
         do {
