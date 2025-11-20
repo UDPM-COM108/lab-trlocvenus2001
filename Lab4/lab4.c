@@ -106,7 +106,9 @@ int main (){
 }*/
 // Bài 5: Xây dựng menu chương trình cho 4 bài tập trên
 #include <stdio.h>
+#include <conio.h>
 #include <math.h>
+#include <stdlib.h>
 long long dectobin (int dec){
     long long bin = 0;
     int p = 0;
@@ -153,6 +155,7 @@ int main() {
                 } else {
                     printf("Không có số nào chia hết cho 2 trong khoảng [%d, %d].\n", min, max);
                 }
+                getch();
                 break;
             }
             case 2: {
@@ -174,6 +177,7 @@ int main() {
                         printf("%d không phải là số nguyên tố.\n", x);
                     }
                 }
+                getch();
                 break;
             }
             case 3: {
@@ -195,26 +199,28 @@ int main() {
                         printf("%d không phải là số chính phương.\n", x);
                     }
                 }
+                getch();
                 break;
             }
             case 4: {
-                int main(){
+                {
                     int sothapphan;
                     printf("Nhập số thập phân: \n");
                     scanf("%d", &sothapphan);
-                    printf("Bin = %d", dectobin(sothapphan));
+                    printf("Bin = %d\n", dectobin(sothapphan));
                 }
+                getch();
                 break;
             }
             case 0:
                 printf("Thoát.\n");
+                exit(0);
                 break;
             default:
                 printf("Vui lòng chọn lại (1-4). Thoát (0)\n");
         }
-        if (chon != 0) {
-            printf("\nEnter - Tiếp tục\n");
-        }
+        printf("\n");
+        printf("Quay lại chương trình:\n");
     } while (chon != 0);
     return 0;
 }
