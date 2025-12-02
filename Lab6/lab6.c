@@ -33,8 +33,8 @@ int main() {
 
 void nhapmang2chieu (int a[M][N], int m, int n);
 void xuatmang2chieu (int a[M][N], int m, int n);
-void giatrilonnhat (int a[M][N], int m, int n);
-void giatrinhonhat (int a[M][N], int m, int n);
+int giatrilonnhat (int a[M][N], int m, int n);
+int giatrinhonhat (int a[M][N], int m, int n);
 
 void nhapmang2chieu (int a[M][N], int m, int n){
     for (int i = 0; i < m; i++){
@@ -52,7 +52,7 @@ void xuatmang2chieu (int a[M][N], int m, int n){
         }
     }
 }
-void giatrilonnhat (int a[M][N], int m, int n){
+int giatrilonnhat (int a[M][N], int m, int n){
     int max = a[0][0];
     for (int i = 0; i < m; i++){
         for (int j = 0; j < n; j++){
@@ -61,8 +61,9 @@ void giatrilonnhat (int a[M][N], int m, int n){
             }
         }
     }
+    return max;
 }
-void giatrinhonhat (int a[M][N], int m, int n){
+int giatrinhonhat (int a[M][N], int m, int n){
     int min = a[0][0];
     for (int i = 0; i < m; i++){
         for (int j = 0; j < n; j++){
@@ -71,6 +72,7 @@ void giatrinhonhat (int a[M][N], int m, int n){
             }
         }
     }
+    return min;
 }
 int main(){
     int a[M][N], m, n;
