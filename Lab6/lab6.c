@@ -28,29 +28,61 @@ int main() {
 }
 // Bài 2: Tìm giá trị lớn nhất và nhỏ nhất trong mảng
 #include <stdio.h>
+#define M 50
+#define N 50
 
-int main() {
-    int n, i;
-    printf("Nhập số phân tử của mảng: ");
-    scanf("%d", &n);
-    int mang[n];
-    for(i = 0; i < n; i++) {
-        printf("Nhập mảng[%d]: ", i);
-        scanf("%d", &mang[i]);
-    }
-    int max = mang[0];
-    int min = mang[0];
-    for(i = 1; i < n; i++) {
-        if(mang[i] > max) {
-            max = mang[i];
-        }
-        if(mang[i] < min) {
-            min = mang[i];
+void nhapmang2chieu (int a[M][N], int m, int n);
+void xuatmang2chieu (int a[M][N], int m, int n);
+void giatrilonnhat (int a[M][N], int m, int n);
+void giatrinhonhat (int a[M][N], int m, int n);
+
+void nhapmang2chieu (int a[M][N], int m, int n){
+    for (int i = 0; i < m; i++){
+        for (int j = 0; j < n; j++){
+            printf("Nhap phan tu a[%d][%d]: ", i, j);
+            scanf("%d", &a[i][j]);
         }
     }
-    printf("Giá trị lớn nhất: %d\n", max);
-    printf("Giá trị nhỏ nhất: %d\n", min);
-    return 0;
+}
+void xuatmang2chieu (int a[M][N], int m, int n){
+    for (int i = 0; i < m; i++){
+        for (int j = 0; j < n; j++){
+            printf("Nhap phan tu a[%d][%d]: ", i, j);
+            scanf("%d", &a[i][j]);
+        }
+    }
+}
+void giatrilonnhat (int a[M][N], int m, int n){
+    int max = a[0][0];
+    for (int i = 0; i < m; i++){
+        for (int j = 0; j < n; j++){
+            if (a[M][N] > max){
+                max = a[M][N];
+            }
+        }
+    }
+}
+void giatrinhonhat (int a[M][N], int m, int n){
+    int min = a[0][0];
+    for (int i = 0; i < m; i++){
+        for (int j = 0; j < n; j++){
+            if (a[M][N] > min){
+                min = a[M][N];
+            }
+        }
+    }
+}
+int main(){
+    int a[M][N], m, n;
+    printf("Nhập: \n");
+    scanf("%d %d %d", &a[M][N], &m, &n);
+    nhapmang2chieu(a, m ,n);
+    xuatmang2chieu(a, m, n);
+    giatrilonnhat(a, m, n);
+    giatrinhonhat(a, m, n);
+    printf("Giá trị lớn nhất là: %d\n", a, m, n);
+    printf("Giá trị nhỏ nhất là: %d\n", a, m, n);
+    return 0;   
 }
 // Bài 3: Sắp xếp mảng theo thứ tự giảm dần
 #include <stdio.h>
