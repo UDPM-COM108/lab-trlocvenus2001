@@ -43,5 +43,6 @@ int main(){
             default:
                 printf("");
         }
-    } while (chon != 0);  
+    } while (chon != 0);
+    return 0;  
 }
