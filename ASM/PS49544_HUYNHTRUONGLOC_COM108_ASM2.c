@@ -45,6 +45,34 @@ int main(){
                 break;
             }
             case 2: {
+                int x, y;
+                printf("x = ");
+                scanf("%d", &x);
+                printf("y = ");
+                scanf("%d", &y);
+                int a = x;
+                int b = y;
+                if (a < 0){
+                    a = -a;
+                }
+                if (b < 0){
+                    b = -b;
+                }
+                while (b != 0) {
+                    int temp = b;
+                    b = a % b;
+                    a = temp;
+                }
+                int ucln = a;
+                int bcnn = 0;
+                if (ucln != 0){
+                    bcnn = (int)x * y / ucln;
+                    if (bcnn < 0){
+                        bcnn = -bcnn;
+                    }
+                    printf("UCLN = %d\n", ucln);
+                    printf("BCNN = %d\n", bcnn);
+                }
                 break;
             }
             case 3: {
