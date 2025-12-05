@@ -12,7 +12,7 @@ int main()
         scanf("%d", &chon);
         switch (chon)
         {
-        case 1:
+        case 1: // dùng if, else, for, công thức tính
         {
             double x;
             printf("x = ");
@@ -62,7 +62,7 @@ int main()
             }
             break;
         }
-        case 2:
+        case 2: // dùng if, while và công thức tính
         {
             int x, y;
             printf("x = ");
@@ -99,7 +99,7 @@ int main()
             }
             break;
         }
-        case 3:
+        case 3: // dùng do while
         {
             int time1, time2;
             do
@@ -133,19 +133,8 @@ int main()
             printf("Tồng tiền thanh toán là: %.0f VND.\n", sum_money);
             break;
         }
-        case 4:
+        case 4: // dùng if - else
         {
-            float kwh;
-            do
-            {
-                printf("Tiền điện sử dụng: ");
-                scanf("%f", &kwh);
-                if (kwh < 0)
-                {
-                    printf("Lỗi. Nhập lại.\n");
-                }
-            } while (kwh < 0);
-            float bill;
             const int lim1 = 50;
             const int lim2 = 100;
             const int lim3 = 200;
@@ -157,6 +146,10 @@ int main()
             const long lv4 = 2536;
             const long lv5 = 2834;
             const long lv6 = 2937;
+            float kwh;
+            printf("Tiền điện sử dụng: ");
+            scanf("%f", &kwh);
+            float bill;
             if (kwh <= 50)
             {
                 bill = kwh * lv1;
@@ -181,11 +174,24 @@ int main()
             {
                 bill = lim1 * (lv1 + lv2) + lim2 * (lv3 + lv4 + lv5) + (kwh - lim5) * lv6;
             }
-            printf("Hóa đơn thanh toán: %f\n", bill);
+            printf("Hóa đơn thanh toán: %.0f\n", bill);
             break;
         }
-        case 5:
+        case 5: // Khai báo mảng
         {
+            int money;
+            printf("Số tiền cần đổi: ");
+            scanf("%d", &money);
+            int face_value[] = {500, 200, 100, 50, 20, 10, 5, 2, 1};
+            for (int i = 0; i < 9; i++)
+            {
+                int count = money / face_value[i];
+                if (count > 0)
+                {
+                    printf("%d tờ %d\n", count, face_value[i]);
+                }
+                money = money % face_value[i];
+            }
             break;
         }
         case 6:
