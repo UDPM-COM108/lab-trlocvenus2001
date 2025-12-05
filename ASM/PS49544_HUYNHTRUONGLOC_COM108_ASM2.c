@@ -196,6 +196,29 @@ int main()
         }
         case 6:
         {
+            float loan_money;
+            printf("Số tiền vay: ");
+            scanf("%f", &loan_money);
+            float interest_rate = 0.05;
+            int term = 12;
+            float principle_payable = loan_money / term;
+            float outstanding_debt = loan_money;
+            for (int i = 0; i <= term; i++)
+            {
+                float interest_payable = outstanding_debt * interest_rate;
+                float total_payable = principle_payable + interest_payable;
+                outstanding_debt = outstanding_debt - principle_payable;
+                if (outstanding_debt < 0)
+                {
+                    outstanding_debt = 0;
+                }
+                printf("Kỳ hạn: %d\n", i);
+                printf("Lãi phải trả: %.0f\n", interest_payable);
+                printf("Gốc phải trả: %.0f\n", principle_payable);
+                printf("Số tiền phải trả: %.0f\n", total_payable);
+                printf("Số tiền còn lại: %.0f\n", outstanding_debt);
+                printf("\n");
+            }
             break;
         }
         case 7:
