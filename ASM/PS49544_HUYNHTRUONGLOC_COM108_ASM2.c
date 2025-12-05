@@ -135,6 +135,53 @@ int main()
         }
         case 4:
         {
+            float kwh;
+            do
+            {
+                printf("Tiền điện sử dụng: ");
+                scanf("%f", &kwh);
+                if (kwh < 0)
+                {
+                    printf("Lỗi. Nhập lại.\n");
+                }
+            } while (kwh < 0);
+            float bill;
+            const int lim1 = 50;
+            const int lim2 = 100;
+            const int lim3 = 200;
+            const int lim4 = 300;
+            const int lim5 = 400;
+            const long lv1 = 1678;
+            const long lv2 = 1734;
+            const long lv3 = 2014;
+            const long lv4 = 2536;
+            const long lv5 = 2834;
+            const long lv6 = 2937;
+            if (kwh <= 50)
+            {
+                bill = kwh * lv1;
+            }
+            else if (kwh <= 100)
+            {
+                bill = lim1 * lv1 + (kwh - lim1) * lv2;
+            }
+            else if (kwh <= 200)
+            {
+                bill = lim1 * (lv1 + lv2) + (kwh - lim2) * lv3;
+            }
+            else if (kwh <= 300)
+            {
+                bill = lim1 * (lv1 + lv2) + lim2 * lv3 + (kwh - lim3) * lv4;
+            }
+            else if (kwh <= 400)
+            {
+                bill = lim1 * (lv1 + lv2) + lim2 * (lv3 + lv4) + (kwh - lim4) * lv5;
+            }
+            else
+            {
+                bill = lim1 * (lv1 + lv2) + lim2 * (lv3 + lv4 + lv5) + (kwh - lim5) * lv6;
+            }
+            printf("Hóa đơn thanh toán: %f\n", bill);
             break;
         }
         case 5:
