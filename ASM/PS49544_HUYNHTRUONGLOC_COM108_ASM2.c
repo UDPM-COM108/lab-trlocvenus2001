@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include <string.h>
+#include <time.h>
 int main()
 {
     int chon;
@@ -318,6 +319,49 @@ int main()
         }
         case 9:
         {
+            int n1, n2;
+            do
+            {
+                printf("Nhập 2 số từ 1 - 15: ");
+                scanf("%d %d", &n1, &n2);
+                if (n1 < 1 || n1 > 15 || n2 < 1 || n2 > 15)
+                {
+                    printf("Báo lỗi! Nhập lại");
+                }
+            } while (n1 < 1 || n1 > 15 || n2 < 1 || n2 > 15);
+            srand((int)time(0));
+            int kq1 = rand() % 15 + 1;
+            int kq2;
+            do
+            {
+                kq2 = rand() % 15 + 1;
+            } while (kq2 == kq1);
+            printf("Kết quả xổ số: %02d - %02d\n", kq1, kq2);
+            printf("Bạn đã chọn: %02d - %02d\n", n1, n2);
+            int count = 0;
+            if (n1 == kq1 || n2 == kq2)
+            {
+                count++;
+            }
+            if (n1 != n2)
+            {
+                if (n2 == kq1 || n1 == kq2)
+                {
+                    count++;
+                }
+            }
+            if (count == 2)
+            {
+                printf("Chúc mừng!!! Bạn đã trúng giải nhất (Trúng cả 2 số) !\n");
+            }
+            else if (count == 1)
+            {
+                printf("Chức mừng!!! Bạn đã trúng giải nhì (Trúng 1 số) !\n");
+            }
+            else
+            {
+                printf("Chức bạn may mắn lần sau (Không trúng số nào) !");
+            }
             break;
         }
         case 10:
