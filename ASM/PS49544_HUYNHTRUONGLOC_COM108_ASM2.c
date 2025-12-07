@@ -196,37 +196,58 @@ int main()
         }
         case 6:
         {
-            float loan_money;
+            float tien_vay;
             printf("Số tiền vay: ");
-            scanf("%f", &loan_money);
-            float interest_rate = 0.05;
-            int term = 12;
-            float principle_payable = loan_money / term;
-            float outstanding_debt = loan_money;
-            for (int i = 0; i <= term; i++)
+            scanf("%f", &tien_vay);
+            float lai_suat = 0.05;
+            int ky_han = 12;
+            float tien_goc_hang_thang = tien_vay / ky_han;
+            float tien_goc_con_lai = tien_vay;
+            for (int i = 1; i <= ky_han; i++)
             {
-                float interest_payable = outstanding_debt * interest_rate;
-                float total_payable = principle_payable + interest_payable;
-                outstanding_debt = outstanding_debt - principle_payable;
-                if (outstanding_debt < 0)
-                {
-                    outstanding_debt = 0;
-                }
+                float tien_lai = tien_goc_con_lai * lai_suat;
+                float tong_tien = tien_goc_hang_thang + tien_lai;
+                tien_goc_con_lai = tien_goc_con_lai - tien_goc_hang_thang;
                 printf("Kỳ hạn: %d\n", i);
-                printf("Lãi phải trả: %.0f\n", interest_payable);
-                printf("Gốc phải trả: %.0f\n", principle_payable);
-                printf("Số tiền phải trả: %.0f\n", total_payable);
-                printf("Số tiền còn lại: %.0f\n", outstanding_debt);
+                printf("Tiền lãi: %.0f\n", tien_lai);
+                printf("Tiền gốc hàng tháng: %.0f\n", tien_goc_hang_thang);
+                printf("Tổng tiền: %.0f\n", tong_tien);
+                printf("Tiền gốc còn lại: %.0f\n", tien_goc_con_lai);
                 printf("\n");
             }
             break;
         }
         case 7:
         {
+            float phan_tram_vay;
+            printf("Phần trăm vay:");
+            scanf("%d", &phan_tram_vay);
+            float tien_vay;
+            printf("Số tiền vay: ");
+            scanf("%f", &tien_vay);
+            float lai_suat_nam = 0.15;
+            float lai_suat_thang = lai_suat_nam / 12;
+            int nam = 24;
+            float ky_han = nam * 12;
+            float tien_goc_hang_thang = tien_vay / ky_han;
+            float tien_goc_con_lai = tien_vay;
+            for (int i = 1; i < ky_han; i++)
+            {
+                float tien_lai = tien_goc_con_lai * lai_suat_thang;
+                float tong_tien = tien_goc_hang_thang + tien_lai;
+                tien_goc_con_lai = tien_goc_con_lai - tien_goc_hang_thang;
+                printf("Kỳ hạn: %d\n", i);
+                printf("Tiền lãi: %.0f\n", tien_lai);
+                printf("Tiền gốc hàng tháng: %.0f\n", tien_goc_hang_thang);
+                printf("Tổng tiền: %.0f\n", tong_tien);
+                printf("Tiền gốc còn lại: %.0f\n", tien_goc_con_lai);
+                printf("\n");
+            }
             break;
         }
         case 8:
         {
+
             break;
         }
         case 9:
