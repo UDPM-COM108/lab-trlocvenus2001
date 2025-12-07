@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <string.h>
 int main()
 {
     int chon;
@@ -247,7 +248,72 @@ int main()
         }
         case 8:
         {
-
+            int n;
+            printf("Nhập số lượng sinh viên: ");
+            scanf("%d", &n);
+            char hoten[100][50];
+            float diem[50];
+            char hocluc[100][20];
+            for (int i = 0; i < n; i++)
+            {
+                printf("STT: ", i + 1);
+                printf("Họ tên: ");
+                getchar();
+                gets(hoten[i]);
+                printf("Điểm: ");
+                scanf("%f", &diem[i]);
+                if (diem[i] >= 9)
+                {
+                    strcpy(hocluc[i], "Xuất sắc");
+                }
+                else if (diem[i] >= 8)
+                {
+                    strcpy(hocluc[i], "Giỏi");
+                }
+                else if (diem[i] >= 6.5)
+                {
+                    strcpy(hocluc[i], "Khá");
+                }
+                else if (diem[i] >= 5)
+                {
+                    strcpy(hocluc[i], "Trung bình");
+                }
+                else
+                {
+                    strcpy(hocluc[i], "Yếu");
+                }
+            }
+            for (int i = 0; i < n - 1; i++)
+            {
+                for (int j = i + 1; j < n; j++)
+                {
+                    if (diem[i] < diem[j])
+                    {
+                        float temp_diem = diem[j];
+                        diem[j] = diem[i];
+                        diem[i] = temp_diem;
+                    }
+                    char temphoten[50];
+                    {
+                        strcpy(temphoten, hoten[i]);
+                        strcpy(hoten[i], hoten[j]);
+                        strcpy(hoten[j], temphoten);
+                    }
+                    char temphocluc[20];
+                    {
+                        strcpy(temphocluc, hocluc[i]);
+                        strcpy(hocluc[i], hocluc[j]);
+                        strcpy(hocluc[j], temphocluc);
+                    }
+                }
+            }
+            for (int i = 0; i < n; i++)
+            {
+                printf("Họ tên: %s\n", hoten[i]);
+                printf("Điểm: %.2f\n", diem[i]);
+                printf("Học lực: %s\n", hocluc[i]);
+                printf("\n");
+            }
             break;
         }
         case 9:
