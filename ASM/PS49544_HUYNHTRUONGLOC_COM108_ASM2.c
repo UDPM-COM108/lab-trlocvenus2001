@@ -517,7 +517,7 @@ int main()
             printf("Tích: %d/%d\n", tich.tu, tich.mau);
             struct phanso thuong;
             thuong.tu = ps1.tu * ps2.mau;
-            thuong.mau = ps1.mau * ps1.tu;
+            thuong.mau = ps1.mau * ps2.tu;
             a = thuong.tu;
             b = thuong.mau;
             if (a > 0)
