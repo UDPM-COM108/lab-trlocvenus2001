@@ -366,14 +366,214 @@ int main()
         }
         case 10:
         {
+            struct phanso
+            {
+                int tu;
+                int mau;
+            };
+            struct phanso ps1, ps2;
+            printf("Phân số 1: ");
+            scanf("%d %d", &ps1.tu, &ps1.mau);
+            do
+            {
+                printf("Phân số 2: ");
+                scanf("%d %d", &ps2.tu, &ps2.mau);
+                if (ps1.mau == 0 || ps2.mau == 0)
+                {
+                    printf("Lỗi! Mẫu phải khác 0");
+                }
+            } while (ps1.mau == 0 || ps2.mau == 0);
+            int a;
+            int b;
+            int ucln = 1;
+            struct phanso tong;
+            tong.tu = ps1.tu * ps2.mau + ps2.tu * ps1.mau;
+            tong.mau = ps1.mau * ps2.mau;
+            a = tong.tu;
+            b = tong.mau;
+            if (a > 0)
+            {
+                a = abs(a);
+            }
+            if (b > 0)
+            {
+                b = abs(b);
+            }
+            if (a == 0 && b == 0)
+            {
+                ucln = 1;
+            }
+            else if (a == 0)
+            {
+                ucln = a;
+            }
+            else if (b == 0)
+            {
+                ucln = b;
+            }
+            else
+            {
+                while (b != 0)
+                {
+                    int temp = b;
+                    b = b % a;
+                    a = temp;
+                }
+                ucln = a;
+            }
+            tong.tu = tong.tu / ucln;
+            tong.mau = tong.mau / ucln;
+            if (tong.mau < 0)
+            {
+                tong.tu = abs(tong.tu);
+                tong.mau = abs(tong.mau);
+            }
+            printf("Tổng: %d/%d\n", tong.tu, tong.mau);
+            struct phanso hieu;
+            hieu.tu = ps1.tu * ps2.mau - ps2.tu * ps1.mau;
+            hieu.mau = ps1.mau * ps2.mau;
+            a = hieu.tu;
+            b = hieu.mau;
+            if (a > 0)
+            {
+                a = abs(a);
+            }
+            if (b > 0)
+            {
+                b = abs(b);
+            }
+            if (a == 0 && b == 0)
+            {
+                ucln = 1;
+            }
+            else if (a == 0)
+            {
+                ucln = a;
+            }
+            else if (b == 0)
+            {
+                ucln = b;
+            }
+            else
+            {
+                while (b != 0)
+                {
+                    int temp = b;
+                    b = b % a;
+                    a = temp;
+                }
+                ucln = a;
+            }
+            hieu.tu = hieu.tu / ucln;
+            hieu.mau = hieu.mau / ucln;
+            if (hieu.mau < 0)
+            {
+                hieu.tu = abs(hieu.tu);
+                hieu.mau = abs(hieu.mau);
+            }
+            printf("Hiệu: %d/%d\n", hieu.tu, hieu.mau);
+            struct phanso tich;
+            tich.tu = ps1.tu * ps2.tu;
+            tich.mau = ps1.mau * ps2.mau;
+            a = tich.tu;
+            b = tich.mau;
+            if (a > 0)
+            {
+                a = abs(a);
+            }
+            if (b > 0)
+            {
+                b = abs(b);
+            }
+            if (a == 0 && b == 0)
+            {
+                ucln = 1;
+            }
+            else if (a == 0)
+            {
+                ucln = a;
+            }
+            else if (b == 0)
+            {
+                ucln = b;
+            }
+            else
+            {
+                while (b != 0)
+                {
+                    int temp = b;
+                    b = b % a;
+                    a = temp;
+                }
+                ucln = a;
+            }
+            tich.tu = tich.tu / ucln;
+            tich.mau = tich.mau / ucln;
+            if (tich.mau < 0)
+            {
+                tich.tu = abs(tich.tu);
+                tich.mau = abs(tich.mau);
+            }
+            printf("Tích: %d/%d\n", tich.tu, tich.mau);
+            struct phanso thuong;
+            thuong.tu = ps1.tu * ps2.mau;
+            thuong.mau = ps1.mau * ps1.tu;
+            a = thuong.tu;
+            b = thuong.mau;
+            if (a > 0)
+            {
+                a = abs(a);
+            }
+            if (b > 0)
+            {
+                b = abs(b);
+            }
+            if (a == 0 && b == 0)
+            {
+                ucln = 1;
+            }
+            else if (a == 0)
+            {
+                ucln = a;
+            }
+            else if (b == 0)
+            {
+                ucln = b;
+            }
+            else
+            {
+                while (b != 0)
+                {
+                    int temp = b;
+                    b = b % a;
+                    a = temp;
+                }
+                ucln = a;
+            }
+            thuong.tu = thuong.tu / ucln;
+            thuong.mau = thuong.mau / ucln;
+            if (thuong.mau < 0)
+            {
+                thuong.tu = abs(thuong.tu);
+                thuong.mau = abs(thuong.mau);
+                printf("Thương: %d/%d\n", thuong.tu, thuong.mau);
+            }
+            else
+            {
+                printf("Không thể chia hết cho 0\n");
+            }
             break;
         }
         case 0:
         {
+            printf("Cảm ơn bạn và hẹn gặp lại!");
+            exit(0);
             break;
         }
         default:
-            printf("");
+        {
+            printf("Lỗi! Vui lòng chọn chức năng từ 1 - 10");
+        }
         }
     } while (chon != 0);
     return 0;
