@@ -8,7 +8,7 @@ int main()          // Hàm chính bắt đầu chương trình
     int chon; // Khai báo biến số nguyên để lưu lựa chọn của người dùng
     do        // Bắt đầu vòng lặp do-while (chạy ít nhất 1 lần để hiện menu)
     {
-        //  -- Hiển thị giao diện MENU --
+        printf("|-------------------- GIAO DIỆN MENU --------------------|\n"); // In giao diện
         printf("|--------------------------------------------------------|\n"); // In đường viền trang trí
         printf("|Chào mừng bạn Huỳnh Trường Lộc đến với ASSIGNMENT COM108|\n"); // In lời chào cá nhân hóa
         printf("|--------------------------------------------------------|\n"); // In đường viền trang trí
@@ -31,25 +31,25 @@ int main()          // Hàm chính bắt đầu chương trình
         {
         case 1: // Chức năng 1: Kiểm tra số nguyên
         {
-            // --- Kiểm tra số nguyên ---
             double x;           // Khai báo biến x kiểu số thực (để kiểm tra nhập vào có phải là số nguyên không)
             printf("Nhập x: "); // In nhắc nhập x
             scanf("%lf", &x);   // Nhập số thực x từ bàn phím
             getchar();          // Xóa trôi lệnh
-            if (x == (int)x)    // Kiểm tra xem x có bằng phần nguyên của nó không
+            printf("\n");
+            if (x == (int)x) // Kiểm tra xem x có bằng phần nguyên của nó không
             {
-                printf("%d là số nguyên.\n", x); // Nếu đúng, in ra x là số nguyên
-                int n = (int)x;                  // Ép kiểu x sang số nguyên n để tính toán tiếp
-                                                 // --- Kiểm tra số nguyên tố ---
-                int songuyento = 1;              // Khởi tạo biến cờ hiệu: 1 là số nguyên tố, 0 là không phải là số nguyên tố
-                if (n < 2)                       // Nếu n nhỏ hơn 2
+                printf("%.2lf là số nguyên.\n", x); // Nếu đúng, in ra x là số nguyên
+                int n = (int)x;                     // Ép kiểu x sang số nguyên n để tính toán tiếp
+                printf("\n");
+                int songuyento = 1; // Khởi tạo biến cờ hiệu: 1 là số nguyên tố, 0 là không phải là số nguyên tố
+                if (n < 2)          // Nếu n nhỏ hơn 2
                 {
                     songuyento = 0; // Không phải là số nguyên tố
                 }
                 else // Nếu n >= 2
                 {
-                    int limit = sqrt(n);            // Tính căn bậc 2 của n
-                    for (int i = 2; i < limit; i++) // Chạy vòng lặp từ 2 đến căn bậc 2 của n
+                    int limit = sqrt(n);             // Tính căn bậc 2 của n
+                    for (int i = 2; i <= limit; i++) // Chạy vòng lặp từ 2 đến căn bậc 2 của n
                     {
                         if (n % i == 0) // Nếu n chia hết cho 1
                         {
@@ -66,15 +66,17 @@ int main()          // Hàm chính bắt đầu chương trình
                 {
                     printf("%d không phải là số nguyên tố.\n", n); // In kết quả không phải là số nguyên tố
                 }
-                // --- Kiểm tra số chính phương ---
+                printf("\n");
                 int canbac2 = sqrt(n);      // Tính phần nguyên căn bậc 2 của n
                 if (canbac2 * canbac2 == n) // Bình phương số đó lên xen có bằng n không
                 {
                     printf("%d là số chính phương.\n", n); // In kết quả là số chính phương
+                    printf("=> Nếu x vừa là số nguyên, vừa là số chính phương thì x không phải là số nguyên tố (đpcm)");
                 }
                 else // Nếu bình phương số đó không bằng n
                 {
                     printf("%d không phải là số chính phương.\n", n); // In kết quả là số chính phương
+                    printf("=> Nếu x là số nguyên nhưng không phải là số chính phương thì x là số nguyên tố (đpcm)");
                 }
                 printf("\n"); // Cách dòng
             }
@@ -84,6 +86,7 @@ int main()          // Hàm chính bắt đầu chương trình
                 printf("Không thực hiện các bước kiểm tra khác. \n"); // Thông báo dừng kiểm tra
                 printf("\n");                                         // Cách dòng
             }
+            getchar();
             break; // Kết thúc case 1
         }
         case 2: // Chức năng 2: Ước chung lớn nhất và bội chung nhỏ nhất
@@ -91,19 +94,17 @@ int main()          // Hàm chính bắt đầu chương trình
             int x, y;                // Khai báo 2 số nguyên
             printf("Nhập x và y: "); // Nhắc nhập x và y
             scanf("%d %d", &x, &y);  // Nhập x, y
-            // Khai báo biến tạm a, b để tính toán UCLN mà không làm mất giá trị x, y gốc
-            int a = x;
-            int b = y;
-            // Lấy giá trị tuyệt đối (để tính UCLN cho số âm)
-            if (a < 0)
+            int a = x;               // Khai tạm biến a
+            int b = y;               // Khai tạm biến b
+            if (a < 0)               // Lấy giá trị tuyệt đối của a
             {
                 a = -a;
             }
-            if (b < 0)
+            if (b < 0) // Lấy giá trị tuyệt đối của b
             {
                 b = -b;
             }
-            // Thuật toán Euclid để tìm UCLN
+            printf("--- Thuật toán Euclid ---");
             while (b != 0) // Lặp lại cho đến khi b khác 0
             {
                 int temp = b; // Lưu giá trị hiện tại của b vào biến tạm
@@ -119,8 +120,8 @@ int main()          // Hàm chính bắt đầu chương trình
                 {
                     bcnn = -bcnn; // Đổi đấu thành dương
                 }
-                printf("UCLN = %d\n", ucln); // In UCLN
-                printf("BCNN = %d\n", bcnn); // In BCNN
+                printf("UCLN = %d\n", ucln); // In kết quả UCLN
+                printf("BCNN = %d\n", bcnn); // In kết quả BCNN
             }
             break; // Kết thúc case 2
         }
@@ -129,12 +130,11 @@ int main()          // Hàm chính bắt đầu chương trình
             int time1, time2; // Giờ bắt đầu, giờ kết thúc
             do                // Vòng lặp kiểm tra tính hợp lệ của giờ nhập vào
             {
-                printf("Bắt đầu: ");  // Nhắc nhập giờ đầu
-                scanf("%d", &time1);  // Nhập giờ đầu
-                printf("Kết thúc: "); // Nhắc nhập giờ cuói
-                scanf("%d", &time2);  // Nhập giờ cuối
-                // Điều kiện sai: Ngoài khung từ 12h - 23h hoặc giờ bắt đầu >= giờ kết thúc
-                if (time1 < 12 || time1 > 23 || time2 < 12 || time2 > 23 || time1 >= time2)
+                printf("Bắt đầu: ");                                                        // Nhắc nhập giờ đầu
+                scanf("%d", &time1);                                                        // Nhập giờ đầu
+                printf("Kết thúc: ");                                                       // Nhắc nhập giờ cuói
+                scanf("%d", &time2);                                                        // Nhập giờ cuối
+                if (time1 < 12 || time1 > 23 || time2 < 12 || time2 > 23 || time1 >= time2) // Điều kiện
                 {
                     printf("Quán chỉ hoạt động từ 12h - 23h. Vui lòng nhập lại. \n"); // In kết quả báo lỗi
                 }
@@ -142,7 +142,7 @@ int main()          // Hàm chính bắt đầu chương trình
             int sum_time = time2 - time1; // Tiền giờ hát
             float sum_money = 0;          // Tổng tiền
             float cost = 150000;          // Giá gốc 1 giờ
-            // Tính tiền cơ bản
+            printf("--- Tính tiền --- ");
             if (sum_time <= 3) // Nếu hát dưới hoặc bằng 3 tiếng
             {
                 sum_money = sum_time * cost; // Tính tiền bình thường
@@ -151,35 +151,28 @@ int main()          // Hàm chính bắt đầu chương trình
             {
                 sum_money = 3 * cost + (sum_time - 3) * (cost * (1 - 0.3));
             }
-            // Khuyến mãi khung giờ vàng từ 14h - 17h
-            if (time1 >= 14 && time2 <= 17)
+            if (time1 >= 14 && time2 <= 17) // Khuyến mãi từ 14h - 17h
             {
                 sum_money = cost * (1 - 0.1);                                     // Giảm 10% tổng hóa đơn
                 printf("Giảm 10%% trong khung giờ vàng 14h - 17h.\n", sum_money); // Thông báo giảm giá
             }
             printf("Tổng giờ hát karaoke là: %d tiếng.\n", sum_time);  // In tổng giờ
             printf("Tồng tiền thanh toán là: %.0f VND.\n", sum_money); // In tổng tiền (làm tròn số nguyên)
+            getchar();                                                 // Xóa trôi lệnh
             break;                                                     // Kết thúc case 3
         }
         case 4: // Chức năng 4: Tính tiền điện
         {
-            // Định nghĩa các mốc tiêu thụ điện
-            const int lim1 = 50;
-            const int lim2 = 100;
-            const int lim3 = 200;
-            const int lim4 = 300;
-            const int lim5 = 400;
-            // Định nghĩa giá tiền từng bậc
-            const long lv1 = 1678;
-            const long lv2 = 1734;
-            const long lv3 = 2014;
-            const long lv4 = 2536;
-            const long lv5 = 2834;
-            const long lv6 = 2937;
-            float kwh;                     // Biến lưu số điện tiêu thụ
-            printf("Tiền điện sử dụng: "); // Nhắc nhập
-            scanf("%f", &kwh);             // Nhập số điện
-            float bill;                    // Biến lưu hóa đơn
+            printf("|------------------- Bảng thông kê tiền điện --------------------|\n");
+            const int lim1 = 50, lim2 = 100, lim3 = 200, lim4 = 300, lim5 = 400;
+            printf("| Mốc tiêu thụ điện: %-4d | %-4d | %-4d | %-4d | %-4d | Trên 400 |\n", lim1, lim2, lim3, lim4, lim5);
+            const long lv1 = 1678, lv2 = 1734, lv3 = 2014, lv4 = 2536, lv5 = 2834, lv6 = 2937;
+            printf("| Giá tiền từng bậc: %-4ld | %-4ld | %-4ld | %-4ld | %-4ld | %-8ld |\n", lv1, lv2, lv3, lv4, lv5, lv6);
+            printf("|----------------------------------------------------------------|\n");
+            float kwh;                       // Biến lưu số điện tiêu thụ
+            printf("  Tiền điện sử dụng: "); // Nhắc nhập
+            scanf("%f", &kwh);               // Nhập số điện
+            float bill;                      // Biến lưu hóa đơn
             // Tính tiền điện theo phương pháp lũy tiền (Bậc thang)
             if (kwh <= 50) // Bậc 1
             {
@@ -206,7 +199,9 @@ int main()          // Hàm chính bắt đầu chương trình
                 bill = lim1 * (lv1 + lv2) + lim2 * (lv3 + lv4 + lv5) + (kwh - lim5) * lv6;
             }
             printf("Hóa đơn thanh toán: %.0f\n", bill); // In hóa đơn
-            break;                                      // Kết thúc case 4
+            printf("\n");
+            getchar(); // Xóa trôi lệnh
+            break;     // Kết thúc case 4
         }
         case 5: // Chức năng 5: Đổi tiền
         {
@@ -225,7 +220,8 @@ int main()          // Hàm chính bắt đầu chương trình
                 }
                 money = money % face_value[i]; // Cập nhật số tiền dư còn lại cần đổi tiếp
             }
-            break; // Kết thúc case 5
+            getchar(); // Xóa trôi lệnh
+            break;     // Kết thúc case 5
         }
         case 6: // Chức năng 6: Tính lãi suất trả góp
         {
@@ -250,7 +246,8 @@ int main()          // Hàm chính bắt đầu chương trình
                 printf("Tiền gốc còn lại: %.0f\n", tien_goc_con_lai);
                 printf("\n"); // Cách dòng
             }
-            break; // Kết thúc case 6
+            getchar(); // Xóa trôi lệnh
+            break;     // Kết thúc case 6
         }
         case 7: // Chức năng 7: Vay tiền mua xe
         {
@@ -280,7 +277,8 @@ int main()          // Hàm chính bắt đầu chương trình
                 printf("Tiền gốc còn lại: %.0f\n", tien_goc_con_lai);
                 printf("\n");
             }
-            break; // Kết thúc case 7
+            getchar(); // Xóa trôi lệnh
+            break;     // Kết thúc case 7
         }
         case 8: // Chức năng 8: Quản lí sinh viên
         {
@@ -353,7 +351,8 @@ int main()          // Hàm chính bắt đầu chương trình
                 printf("Học lực: %s\n", hocluc[i]);
                 printf("\n");
             }
-            break; // Kết thúc case 8
+            getchar(); // Xóa trôi lệnh
+            break;     // Kết thúc case 8
         }
         case 9: // Chức năng 9: Game xổ số
         {
@@ -398,7 +397,8 @@ int main()          // Hàm chính bắt đầu chương trình
             {
                 printf("Chức bạn may mắn lần sau (Không trúng số nào) !");
             }
-            break; // Kết thúc case 9
+            break;     // Kết thúc case 9
+            getchar(); // Xóa trôi lệnh
         }
         case 10: // Chức năng 10: Tính toán phân số
         {
@@ -547,7 +547,8 @@ int main()          // Hàm chính bắt đầu chương trình
                 }
                 printf("Thương: %d/%d\n", thuong.tu, thuong.mau); // In kết quả thương
             }
-            break; // Kết thúc case 10
+            getchar(); // Xóa trôi lệnh
+            break;     // Kết thúc case 10
         }
         case 0: // Thoát
         {
