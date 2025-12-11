@@ -38,7 +38,7 @@ int main()          // Hàm chính bắt đầu chương trình
             printf("\n");
             if (x == (int)x) // Kiểm tra xem x có bằng phần nguyên của nó không
             {
-                printf("%.2lf là số nguyên.\n", x); // Nếu đúng, in ra x là số nguyên
+                printf("%.0lf là số nguyên.\n", x); // Nếu đúng, in ra x là số nguyên
                 int n = (int)x;                     // Ép kiểu x sang số nguyên n để tính toán tiếp
                 printf("\n");
                 int songuyento = 1; // Khởi tạo biến cờ hiệu: 1 là số nguyên tố, 0 là không phải là số nguyên tố
@@ -71,12 +71,10 @@ int main()          // Hàm chính bắt đầu chương trình
                 if (canbac2 * canbac2 == n) // Bình phương số đó lên xen có bằng n không
                 {
                     printf("%d là số chính phương.\n", n); // In kết quả là số chính phương
-                    printf("=> Nếu x vừa là số nguyên, vừa là số chính phương thì x không phải là số nguyên tố (đpcm)");
                 }
                 else // Nếu bình phương số đó không bằng n
                 {
                     printf("%d không phải là số chính phương.\n", n); // In kết quả là số chính phương
-                    printf("=> Nếu x là số nguyên nhưng không phải là số chính phương thì x là số nguyên tố (đpcm)");
                 }
                 printf("\n"); // Cách dòng
             }
@@ -104,7 +102,7 @@ int main()          // Hàm chính bắt đầu chương trình
             {
                 b = -b;
             }
-            printf("--- Thuật toán Euclid ---");
+            printf("--- Thuật toán Euclid ---\n");
             while (b != 0) // Lặp lại cho đến khi b khác 0
             {
                 int temp = b; // Lưu giá trị hiện tại của b vào biến tạm
@@ -136,13 +134,14 @@ int main()          // Hàm chính bắt đầu chương trình
                 scanf("%d", &time2);                                                        // Nhập giờ cuối
                 if (time1 < 12 || time1 > 23 || time2 < 12 || time2 > 23 || time1 >= time2) // Điều kiện
                 {
-                    printf("Quán chỉ hoạt động từ 12h - 23h. Vui lòng nhập lại. \n"); // In kết quả báo lỗi
+                    printf("Quán chỉ hoạt động từ 12h - 23h. Vui lòng nhập lại.\n"); // In kết quả báo lỗi
+                    printf("\n");                                                    // Cách dòng
                 }
             } while (time1 < 12 || time1 > 23 || time2 < 12 || time2 > 23 || time1 >= time2); // Lặp lại nếu sai
             int sum_time = time2 - time1; // Tiền giờ hát
             float sum_money = 0;          // Tổng tiền
             float cost = 150000;          // Giá gốc 1 giờ
-            printf("--- Tính tiền --- ");
+            printf("--- Tính tiền ---\n");
             if (sum_time <= 3) // Nếu hát dưới hoặc bằng 3 tiếng
             {
                 sum_money = sum_time * cost; // Tính tiền bình thường
@@ -150,6 +149,7 @@ int main()          // Hàm chính bắt đầu chương trình
             else // Nếu hát trên 3 tiếng + các tiếng sau giảm 30%
             {
                 sum_money = 3 * cost + (sum_time - 3) * (cost * (1 - 0.3));
+                printf("Giảm 30%% khi hát trên 3 tiếng\n");
             }
             if (time1 >= 14 && time2 <= 17) // Khuyến mãi từ 14h - 17h
             {
@@ -233,17 +233,14 @@ int main()          // Hàm chính bắt đầu chương trình
             float tien_goc_hang_thang = tien_vay / ky_han; // Tính gốc phải trả đều mỗi tháng
             float tien_goc_con_lai = tien_vay;             // Ban đầu gốc còn lại bằng tổng vay
             // Vòng lặp in bảng trả nợ cho 12 tháng
+            printf("|       Kỳ hạn       |       Tiền lãi        |       Tiền gốc hàng tháng         |       Tổng tiền       |        Tiền gốc còn lại      |\n");
             for (int i = 1; i <= ky_han; i++)
             {
                 float tien_lai = tien_goc_con_lai * lai_suat;              // Tính lãi suất này dựa trên dư nợ
                 float tong_tien = tien_goc_hang_thang + tien_lai;          // Tổng phải trả tháng này
                 tien_goc_con_lai = tien_goc_con_lai - tien_goc_hang_thang; // Trừ bớt gốc đã trả
                 // In thông tin chi tiết từng tháng
-                printf("Kỳ hạn: %d\n", i);
-                printf("Tiền lãi: %.0f\n", tien_lai);
-                printf("Tiền gốc hàng tháng: %.0f\n", tien_goc_hang_thang);
-                printf("Tổng tiền: %.0f\n", tong_tien);
-                printf("Tiền gốc còn lại: %.0f\n", tien_goc_con_lai);
+                printf("| %-18d | %-21.0f | %-33.0f | %-21.0f | %-28.0f |", i, tien_lai, tien_goc_hang_thang, tong_tien, tien_goc_con_lai);
                 printf("\n"); // Cách dòng
             }
             getchar(); // Xóa trôi lệnh
@@ -264,17 +261,14 @@ int main()          // Hàm chính bắt đầu chương trình
             float tien_goc_hang_thang = tien_vay / ky_han; // Gốc chia đều cho tổng tháng
             float tien_goc_con_lai = tien_vay;             // Dư nợ ban đầu
             // Vòng lặp in bảng trả nợ cho 24 năm
+            printf("|       Kỳ hạn       |       Tiền lãi        |       Tiền gốc hàng tháng         |       Tổng tiền       |        Tiền gốc còn lại      |\n");
             for (int i = 1; i < ky_han; i++)
             {
                 float tien_lai = tien_goc_con_lai * lai_suat_thang;        // Tính lãi trên dư nợ
                 float tong_tien = tien_goc_hang_thang + tien_lai;          // Tổng trả
                 tien_goc_con_lai = tien_goc_con_lai - tien_goc_hang_thang; // Giảm dư nợ
                 // In thông tin chi tiết từng tháng
-                printf("Kỳ hạn: %d\n", i);
-                printf("Tiền lãi: %.0f\n", tien_lai);
-                printf("Tiền gốc hàng tháng: %.0f\n", tien_goc_hang_thang);
-                printf("Tổng tiền: %.0f\n", tong_tien);
-                printf("Tiền gốc còn lại: %.0f\n", tien_goc_con_lai);
+                printf("| %-18d | %-21.0f | %-33.0f | %-21.0f | %-28.0f |", i, tien_lai, tien_goc_hang_thang, tong_tien, tien_goc_con_lai);
                 printf("\n");
             }
             getchar(); // Xóa trôi lệnh
@@ -291,32 +285,33 @@ int main()          // Hàm chính bắt đầu chương trình
             // Vòng lặp nhập dữ liệu
             for (int i = 0; i < n; i++)
             {
-                printf("STT: ", i + 1); // In số thứ tự tăng dần
-                printf("Họ tên: ");     // In họ và tên
-                getchar();              // xóa trôi lệnh
-                gets(hoten[i]);         // Nhập cả dòng họ tên có dấu cách
-                printf("Điểm: ");       // In điểm
-                scanf("%f", &diem[i]);  // Nhập điểm
+                printf("STT: %d\n", i + 1); // In số thứ tự tăng dần
+                printf("Họ tên: ");         // In họ và tên
+                getchar();                  // xóa trôi lệnh
+                gets(hoten[i]);             // Nhập cả dòng họ tên có dấu cách
+                printf("Điểm: ");           // In điểm
+                scanf("%f", &diem[i]);      // Nhập điểm
+                printf("\n");
                 // Xếp loại
                 if (diem[i] >= 9)
                 {
-                    strcpy(hocluc[i], "Xuất sắc");
+                    strcpy(hocluc[i], "XUAT SAC");
                 }
                 else if (diem[i] >= 8)
                 {
-                    strcpy(hocluc[i], "Giỏi");
+                    strcpy(hocluc[i], "GIOI");
                 }
                 else if (diem[i] >= 6.5)
                 {
-                    strcpy(hocluc[i], "Khá");
+                    strcpy(hocluc[i], "KHA");
                 }
                 else if (diem[i] >= 5)
                 {
-                    strcpy(hocluc[i], "Trung bình");
+                    strcpy(hocluc[i], "TRUNG BINH");
                 }
                 else
                 {
-                    strcpy(hocluc[i], "Yếu");
+                    strcpy(hocluc[i], "YEU");
                 }
             }
             // Sắp xếp sinh viên bằng thuật tuấn Bubble Sort
@@ -344,11 +339,10 @@ int main()          // Hàm chính bắt đầu chương trình
                 }
             }
             // Xuất danh sách sau khi sắp xếp
+            printf("| %-5s | %-24s | %-6s | %-12s |\n", "STT", "Ho va ten", "Diem", "Hoc luc");
             for (int i = 0; i < n; i++)
             {
-                printf("Họ tên: %s\n", hoten[i]);
-                printf("Điểm: %.2f\n", diem[i]);
-                printf("Học lực: %s\n", hocluc[i]);
+                printf("| %-5d | %-24s | %-6.2f | %-12s |", i + 1, hoten[i], diem[i], hocluc[i]);
                 printf("\n");
             }
             getchar(); // Xóa trôi lệnh
@@ -356,6 +350,14 @@ int main()          // Hàm chính bắt đầu chương trình
         }
         case 9: // Chức năng 9: Game xổ số
         {
+            srand((int)time(0));       // Khởi tạo bộ sinh số ngẫu nhiên theo thời gian thực
+            int kq1 = rand() % 15 + 1; // Random số thứ 1 (từ 1 đến 15)
+            int kq2;
+            do
+            {
+                kq2 = rand() % 15 + 1; // Random số thứ 2
+            } while (kq2 == kq1); // Đảm bảo 2 số kết quả không trùng nhau
+            // printf("Đáp án: %d và %d\n", kq1, kq2);
             int n1, n2; // 2 số người chơi chọn
             do          // Vòng lặp yêu cầu nhập đúng
             {
@@ -366,22 +368,15 @@ int main()          // Hàm chính bắt đầu chương trình
                     printf("Báo lỗi! Nhập lại"); // Báo lỗi
                 }
             } while (n1 < 1 || n1 > 15 || n2 < 1 || n2 > 15); // Lặp lại nếu sai
-            srand((int)time(0));       // Khởi tạo bộ sinh số ngẫu nhiên theo thời gian thực
-            int kq1 = rand() % 15 + 1; // Random số thứ 1 (từ 1 đến 15)
-            int kq2;
-            do
-            {
-                kq2 = rand() % 15 + 1; // Random số thứ 2
-            } while (kq2 == kq1); // Đảm bảo 2 số kết quả không trùng nhau
             printf("Kết quả xổ số: %02d - %02d\n", kq1, kq2); // In kết quẩ xổ số
             printf("Bạn đã chọn: %02d - %02d\n", n1, n2);     // In số bạn chọn
             int count = 0;                                    // Biến đếm số cặp trùng
             // Kiểm tra xem có số nào trúng không
-            if (n1 == kq1 || n2 == kq2)
+            if (n1 == kq1 || n1 == kq2)
             {
                 count++; // Nếu n1 trúng 1 trong 2 số kết quả thì tăng biến đếm
             }
-            if (n1 == kq2 || n1 == kq1)
+            if (n2 == kq1 || n2 == kq2)
             {
                 count++; // Nếu n2 trúng 1 trong 2 số kết quả thì tăng biến đếm
             }
@@ -395,7 +390,7 @@ int main()          // Hàm chính bắt đầu chương trình
             }
             else // Không trúng
             {
-                printf("Chức bạn may mắn lần sau (Không trúng số nào) !");
+                printf("Chức bạn may mắn lần sau (Không trúng số nào) !\n");
             }
             break;     // Kết thúc case 9
             getchar(); // Xóa trôi lệnh
@@ -437,7 +432,7 @@ int main()          // Hàm chính bắt đầu chương trình
                 while (b != 0)
                 {
                     int temp = b;
-                    b = b % a;
+                    b = a % b;
                     a = temp;
                 }
                 ucln = a;
@@ -467,7 +462,7 @@ int main()          // Hàm chính bắt đầu chương trình
                 while (b != 0)
                 {
                     int temp = b;
-                    b = b % a;
+                    b = a % b;
                     a = temp;
                 }
                 ucln = a;
@@ -496,7 +491,7 @@ int main()          // Hàm chính bắt đầu chương trình
                 while (b != 0)
                 {
                     int temp = b;
-                    b = b % a;
+                    b = a % b;
                     a = temp;
                 }
                 ucln = a;
@@ -532,7 +527,7 @@ int main()          // Hàm chính bắt đầu chương trình
                     while (b != 0)
                     {
                         int temp = b;
-                        b = a;
+                        b = a % b;
                         a = temp;
                     }
                     ucln = a;
