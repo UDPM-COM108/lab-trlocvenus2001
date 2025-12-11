@@ -557,5 +557,5 @@ int main()          // Hàm chính bắt đầu chương trình
         }
         } // Kết thúc switch
     } while (chon != 0); // Điều kiện lặp: nếu chọn khác 0 thì quay lại menu
-    return 0; // Kết thúc hàm main
+    return 0; // Kết thúc hàm main.
 }
